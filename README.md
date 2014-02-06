@@ -8,3 +8,4 @@ Built using AngularJS, Ionic Framework.  Tested with Jasmine, Karma, angular-moc
 Cordova plugins required:
 com.phonegap.plugins.barcodescanner
 org.apache.cordova.device
+
