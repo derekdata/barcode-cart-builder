@@ -24,6 +24,6 @@
         "karma": "~0.8"
     },
     "scripts": {
-        "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+        "test": "./node_modules/.bin/karma start karma.conf.js --single-run --browsers PhantomJS"
     }
 }
