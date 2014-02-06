@@ -1,0 +1,29 @@
+{
+    "name": "barcode-cart-builder",
+    "description": "A Cordova application that builds a shopping cart by barcode",
+    "version": "1.0.0",
+    "homepage": "https://github.com/derekdata/barcode-cart-builder",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/derekdata/barcode-cart-builder.git"
+    },
+    "author": {
+        "name": "Derek",
+        "email": "web.development.help@gmail.com",
+        "url": "https://github.com/derekdata/"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/derekdata/barcode-cart-builder/LICENSE"
+        }
+    ],
+    "dependencies": {
+    },
+    "devDependencies": {
+        "karma": "~0.8"
+    },
+    "scripts": {
+        "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+    }
+}

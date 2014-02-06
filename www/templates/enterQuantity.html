@@ -1,0 +1,26 @@
+<view title="'Enter Quantity'" ng-contoller="QuantityCtrl" left-buttons="leftButtons" right-buttons="rightButtons"
+      hide-back-button="true">
+    <content has-header="true" scroll="true">
+        <div class="row">
+            <div class="col" style="text-align: center;">{{currentItem.itemDescription}} ({{currentItem.itemId}})</div>
+        </div>
+        <div class="row">
+            <div class="col" style="text-align: center;"><img ng-src="{{currentItem.imageUrl}}" height="100"
+                                                              width="100"/></div>
+        </div>
+        <div class="list">
+
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="number" step="1" min="0" placeholder="Enter Quantity"
+                           ng-model="currentItem.quantity" ng-focus>
+                </label>
+                <button ng-click="processItem(currentItem,true)" class="button">Scan
+                </button>
+                <button ng-click="processItem(currentItem,false)" class="button">Done
+                </button>
+            </div>
+
+        </div>
+    </content>
+</view>

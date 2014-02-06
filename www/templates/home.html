@@ -1,0 +1,27 @@
+<view title="'Cart'" ng-contoller="HomeCtrl" left-buttons="leftButtons" right-buttons="rightButtons"
+      hide-back-button="true">
+    <content has-header="true" scroll="true">
+        <div class="list">
+            <a class="item item-thumbnail-left" ng-href="#/edit/{{$index}}" ng-repeat="item in items track by $index">
+                <img ng-src="{{item.imageUrl}}"/>
+
+                <h2>{{item.itemDescription}}</h2>
+
+                <p>({{item.itemId}})</p>
+
+                <p>Qty: {{item.quantity}}</p>
+            </a>
+        </div>
+    </content>
+    <div class="bar bar-footer bar-assertive">
+        <div class="row">
+            <div class="col">
+                <button class="button" ng-click="clearCart()">
+                    Clear cart
+                </button>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+    </div>
+</view>
