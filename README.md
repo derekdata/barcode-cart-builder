@@ -1,4 +1,4 @@
-barcode-cart-builder
+barcode-cart-builder [![Build Status](https://travis-ci.org/derekdata/barcode-cart-builder.png?branch=master)](https://travis-ci.org/derekdata/barcode-cart-builder)
 ====================
 
 Cordova/Phonegap application that builds a cart on a mobile device by scanning barcodes.
@@ -8,3 +8,4 @@ Built using AngularJS, Ionic Framework.  Tested with Jasmine, Karma, angular-moc
 Cordova plugins required:
 com.phonegap.plugins.barcodescanner
 org.apache.cordova.device
+
