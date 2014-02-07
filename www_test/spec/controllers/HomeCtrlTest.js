@@ -18,7 +18,7 @@ describe('Controller: HomeCtrl', function () {
         scope = $rootScope.$new();
 
         windowMockTrueConfirm = { confirm: function (msg) {
-            return true
+            return true;
         } };
         itemMock.clear = jasmine.createSpy('clear');
         itemMock.all = jasmine.createSpy('all').andReturn(sampleItems);
@@ -44,6 +44,7 @@ describe('Controller: HomeCtrl', function () {
     it('should submit the cart on submitCart', function () {
         scope.submitCart(scope);
         expect(submitCartServiceMock.submitCart).toHaveBeenCalled();
+        expect(submitCartServiceMock.submitCart).toHaveBeenCalledWith(sampleItems);
     });
 
     it('should save items when they change', function () {

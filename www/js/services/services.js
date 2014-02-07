@@ -17,7 +17,7 @@ angular.module('barcodeCartBuilder.services', [])
                     return;
                 }
             }
-        }
+        };
     }
 )
     .factory('Items', function () {
@@ -40,7 +40,7 @@ angular.module('barcodeCartBuilder.services', [])
             clear: function () {
                 window.localStorage['items'] = "[]";
             }
-        }
+        };
     }
 )
     .factory('BarcodeScannerService', function () {
@@ -61,17 +61,17 @@ angular.module('barcodeCartBuilder.services', [])
             isAvailable: function () {
                 if (typeof plugins !== 'undefined' &&
                     typeof plugins.barcodeScanner !== 'undefined' &&
-                    typeof plugins.barcodeScanner.scan == 'function') {
+                    typeof plugins.barcodeScanner.scan === 'function') {
                     return true;
                 }
                 return false;
             }
-        }
+        };
     }
 )
-    .factory('SubmitCartService', function () {
+    .factory('SubmitCartService', function ($window, SUBMIT_CART_URL) {
         return {
-            submitCart: function (SUBMIT_CART_URL) {
+            submitCart: function (items) {
 
                 var url = SUBMIT_CART_URL;
 
@@ -92,11 +92,11 @@ angular.module('barcodeCartBuilder.services', [])
                 console.log("Redirecting to ", url);
                 //$window.location.href = url;
                 //open in an new window to make navigation easier.  No chrome makes it difficult to work in the system that the cart is submitted to.
-                var ref = $window.open('url', '_blank', 'location=yes');
+                var ref = $window.open(url, '_blank', '');
 
                 return true;
             }
-        }
+        };
     }
 );
 

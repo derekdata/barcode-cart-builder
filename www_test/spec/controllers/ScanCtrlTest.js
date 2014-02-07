@@ -46,7 +46,7 @@ describe('Controller: ScanCtrl', function () {
                 $state: stateMock
             });
 
-        })
+        });
 
         expect(barcodeScannerServiceMock.isAvailable).toHaveBeenCalled();
         expect(barcodeScannerServiceMock.scanBarcode).not.toHaveBeenCalled();
@@ -71,7 +71,7 @@ describe('Controller: ScanCtrl', function () {
                 $state: stateMock
             });
 
-        })
+        });
 
         expect(barcodeScannerServiceMock.isAvailable).toHaveBeenCalled();
         expect(barcodeScannerServiceMock.scanBarcode).toHaveBeenCalled();
@@ -87,7 +87,7 @@ describe('Controller: ScanCtrl', function () {
             barcodeScannerServiceMock.scanBarcode = jasmine.createSpy('scanBarcode').andReturn({"error": true});
             barcodeScannerServiceMock.isAvailable = jasmine.createSpy('isAvailable').andReturn(true);
             windowMock = {confirm: function (msg) {
-                return true
+                return true;
             }};
 
             //$scope, $timeout, Items, $state, SubmitCartService, $window
@@ -99,7 +99,7 @@ describe('Controller: ScanCtrl', function () {
                 $state: stateMock
             });
 
-        })
+        });
 
         expect(barcodeScannerServiceMock.isAvailable).toHaveBeenCalled();
         expect(barcodeScannerServiceMock.scanBarcode).toHaveBeenCalled();
@@ -115,7 +115,7 @@ describe('Controller: ScanCtrl', function () {
             barcodeScannerServiceMock.scanBarcode = jasmine.createSpy('scanBarcode').andReturn({"error": true});
             barcodeScannerServiceMock.isAvailable = jasmine.createSpy('isAvailable').andReturn(true);
             windowMock = {confirm: function (msg) {
-                return false
+                return false;
             }};
 
             //$scope, $timeout, Items, $state, SubmitCartService, $window
@@ -127,7 +127,7 @@ describe('Controller: ScanCtrl', function () {
                 $state: stateMock
             });
 
-        })
+        });
 
         expect(barcodeScannerServiceMock.isAvailable).toHaveBeenCalled();
         expect(barcodeScannerServiceMock.scanBarcode).toHaveBeenCalled();

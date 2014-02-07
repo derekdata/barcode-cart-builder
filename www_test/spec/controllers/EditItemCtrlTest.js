@@ -53,7 +53,7 @@ describe('Controller: EditItemCtrl', function () {
             expect(itemMock.save).toHaveBeenCalledWith(sampleItems);
             expect(stateMock.go).toHaveBeenCalledWith('scan');
 
-        })
+        });
 
 
     });

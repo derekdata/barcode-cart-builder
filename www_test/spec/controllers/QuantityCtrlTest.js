@@ -20,7 +20,6 @@ describe('Controller: QuantityCtrl', function () {
 
     // Initialize variables & mocks before each test
     beforeEach(function () {
-            barcodeScannerServiceMock = {};
             stateMock.go = jasmine.createSpy('go');
             itemMock.add = jasmine.createSpy('add');
             itemMock.all = jasmine.createSpy('all').andReturn(sampleItems);
@@ -45,7 +44,7 @@ describe('Controller: QuantityCtrl', function () {
                 BarcodeItemService: barcodeItemServiceMock
             });
 
-        })
+        });
 
         expect(barcodeItemServiceMock.get).toHaveBeenCalled();
         expect(scope.currentItem).toEqual(angular.copy(sampleBarcodeItem));
@@ -60,7 +59,7 @@ describe('Controller: QuantityCtrl', function () {
             barcodeItemServiceMock.get = jasmine.createSpy('get').andReturn(null);
 
             windowMock = { confirm: function (msg) {
-                return true
+                return true;
             } };
 
             //$scope, $timeout, Items, $state, SubmitCartService, $window
@@ -73,7 +72,7 @@ describe('Controller: QuantityCtrl', function () {
                 BarcodeItemService: barcodeItemServiceMock
             });
 
-        })
+        });
 
         expect(barcodeItemServiceMock.get).toHaveBeenCalled();
         expect(scope.currentItem).toEqual(null);
@@ -89,7 +88,7 @@ describe('Controller: QuantityCtrl', function () {
             barcodeItemServiceMock.get = jasmine.createSpy('get').andReturn(null);
 
             windowMock = { confirm: function (msg) {
-                return false
+                return false;
             } };
 
             //$scope, $timeout, Items, $state, SubmitCartService, $window
@@ -102,7 +101,7 @@ describe('Controller: QuantityCtrl', function () {
                 BarcodeItemService: barcodeItemServiceMock
             });
 
-        })
+        });
 
         expect(barcodeItemServiceMock.get).toHaveBeenCalled();
         expect(scope.currentItem).toEqual(null);
@@ -125,7 +124,7 @@ describe('Controller: QuantityCtrl', function () {
                 BarcodeItemService: barcodeItemServiceMock
             });
 
-        })
+        });
 
         expect(barcodeItemServiceMock.get).toHaveBeenCalled();
         expect(scope.currentItem).toEqual(angular.copy(sampleBarcodeItem));

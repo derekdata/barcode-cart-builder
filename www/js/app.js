@@ -1,6 +1,6 @@
 angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
 
-    .constant("SUBMIT_CART_URL", "http://headers.jsontest.com/")
+    .constant("SUBMIT_CART_URL", "http://headers.jsontest.com/cart")
 
     .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -24,7 +24,7 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
                 url: "/edit/:itemIndex",
                 templateUrl: "templates/enterQuantity.html",
                 controller: 'EditItemCtrl'
-            })
+            });
 
         // if none of the above are matched, go to this one
         $urlRouterProvider.otherwise("/home");
@@ -37,9 +37,9 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
 
         $scope.scan = function () {
             $state.go('scan');
-        }
+        };
 
-        $scope.submitCart = function () {
+        $scope.submitCart = function ($scope) {
             var items = Items.all();
             SubmitCartService.submitCart(items);
         };
@@ -52,11 +52,11 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
 
         $scope.clearCart = function () {
             var r = $window.confirm("Are you sure you want to clear your cart?");
-            if (r == true) {
+            if (r === true) {
                 Items.clear();
                 items = $scope.items = [];
             }
-        }
+        };
 
     })
 
@@ -72,7 +72,7 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
             }
             else {
                 var r = $window.confirm("Scanning failed.  Try again?");
-                if (r == true) {
+                if (r === true) {
                     $state.go('scan');
                 }
                 else {
@@ -124,9 +124,9 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
         console.log(BarcodeItemService.get(parseInt(barcodeId, 10)));
         $scope.currentItem = angular.copy(BarcodeItemService.get(parseInt(barcodeId, 10)));
 
-        if ($scope.currentItem == undefined || $scope.currentItem == null || $scope.currentItem.itemId == undefined || $scope.currentItem.itemId == null) {
+        if ($scope.currentItem === undefined || $scope.currentItem == null || $scope.currentItem.itemId === undefined || $scope.currentItem.itemId == null) {
             var r = $window.confirm("Item not found.  Try again?");
-            if (r == true) {
+            if (r === true) {
                 $state.go('scan');
             }
             else {

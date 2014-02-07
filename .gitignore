@@ -2,4 +2,5 @@ platforms
 plugins
 www/components
 node_packages
+node_modules
 .idea
