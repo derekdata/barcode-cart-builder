@@ -7,5 +7,5 @@ var barcodeItems = {
     ],
     "75645125128": [
         {itemId: "Honey-1", itemGroupId: "1", itemDescription: "Honey, 24oz jar", imageUrl: "http://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Runny_hunny.jpg/395px-Runny_hunny.jpg"}
-    ],
+    ]
 }

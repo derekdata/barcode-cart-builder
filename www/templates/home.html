@@ -1,4 +1,4 @@
-<view title="'Cart'" ng-contoller="HomeCtrl" left-buttons="leftButtons" right-buttons="rightButtons"
+<view title="'Shopping Cart'" ng-contoller="HomeCtrl" left-buttons="leftButtons" right-buttons="rightButtons"
       hide-back-button="true">
     <content has-header="true" scroll="true">
         <div class="list">
@@ -13,15 +13,18 @@
             </a>
         </div>
     </content>
-    <div class="bar bar-footer bar-assertive">
-        <div class="row">
-            <div class="col">
-                <button class="button" ng-click="clearCart()">
-                    Clear cart
-                </button>
-            </div>
-            <div class="col"></div>
-            <div class="col"></div>
-        </div>
+    <div class="tabs tabs-icon-left">
+        <a class="tab-item" ng-click="submitCart()">
+            <i class="icon ion-ios7-cart"></i>
+            Submit/Checkout
+        </a>
+        <a class="tab-item" ng-click="scan()">
+            <i class="icon ion-ios7-videocam"></i>
+            Scan
+        </a>
+        <a class="tab-item" ng-click="clearCart()">
+            <i class="icon ion-ios7-close-outline"></i>
+            Clear
+        </a>
     </div>
 </view>

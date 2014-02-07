@@ -35,10 +35,6 @@ describe('Controller: HomeCtrl', function () {
 
     }));
 
-    it('should have a button on the right with the label Scan', function () {
-        expect(scope.rightButtons[0].content).toBe("Scan");
-    });
-
     it('should clear items from the cart & scope on clear cart', function () {
         scope.clearCart();
         expect(itemMock.clear).toHaveBeenCalled();

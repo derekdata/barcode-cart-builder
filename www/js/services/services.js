@@ -71,7 +71,7 @@ angular.module('barcodeCartBuilder.services', [])
 )
     .factory('SubmitCartService', function () {
         return {
-            submit: function (SUBMIT_CART_URL) {
+            submitCart: function (SUBMIT_CART_URL) {
 
                 var url = SUBMIT_CART_URL;
 
@@ -89,9 +89,10 @@ angular.module('barcodeCartBuilder.services', [])
                     }
                 }
 
-                //TODO have this open in an new window to make navigation easier.  No chrome makes it difficult to work in the system that the cart is submitted to.
                 console.log("Redirecting to ", url);
-                $window.location.href = url;
+                //$window.location.href = url;
+                //open in an new window to make navigation easier.  No chrome makes it difficult to work in the system that the cart is submitted to.
+                var ref = $window.open('url', '_blank', 'location=yes');
 
                 return true;
             }

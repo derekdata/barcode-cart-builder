@@ -35,28 +35,11 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
         // Load or initialize items
         var items = $scope.items = Items.all();
 
-        $scope.leftButtons = [
-            {
-                type: 'button-energized',
-                content: 'Submit',
-                tap: function (e) {
-                    $scope.submitCart();
-                }
-            }
-        ];
-        $scope.rightButtons = [
-            {
-                type: 'button-energized',
-                content: 'Scan',
-                tap: function (e) {
-                    $timeout(function () {
-                        $state.go('scan');
-                    });
-                }
-            }
-        ]
+        $scope.scan = function () {
+            $state.go('scan');
+        }
 
-        $scope.submitCart = function ($scope) {
+        $scope.submitCart = function () {
             var items = Items.all();
             SubmitCartService.submitCart(items);
         };
