@@ -5,6 +5,12 @@ Cordova/Phonegap application that builds a cart on a mobile device by scanning b
 
 Built using AngularJS, Ionic Framework.  Tested with Jasmine, Karma, angular-mocks.  Dependency management with Bower.
 
+Screenshots
+-----------
+
+![alt text](https://github.com/derekdata/barcode-cart-builder/tree/master/sampleData/screenshots/android/cart.png "Cart")
+![alt text](https://github.com/derekdata/barcode-cart-builder/tree/master/sampleData/screenshots/android/editQuantity.png "EditQuantity")
+
 Cordova plugins required
 -------------------------
 com.phonegap.plugins.barcodescanner
@@ -16,5 +22,9 @@ Setting up your development environment
 2. run `node install` from the project directory
 3. install cordova `sudo npm install -g cordova`
 4. Follow the Cordova platform guides for Android and iOS to make sure you have everything needed for development on those platforms
+5. Add whichever platforms you want to Cordova using the command `cordova add <platform>` (see Cordova documentation for more detailed information on this)
 
+Running the application
+-----------------------
+Run the application on an device emulator or physical device using the `cordova run <platform>` command
 
