@@ -1,6 +1,6 @@
 angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
 
-    .constant("SUBMIT_CART_URL", "http://headers.jsontest.com/cart")
+    .constant("SUBMIT_CART_URL", "http://httpbin.org/get?cart=true")
 
     .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -60,7 +60,7 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
 
     })
 
-    .controller('ScanCtrl', function ($scope, $timeout, $ionicModal, $state, BarcodeScannerService, $window, $rootScope) {
+    .controller('ScanCtrl', function ($scope, $timeout, $ionicModal, $state, BarcodeScannerService, $window) {
 
         $scope.handleBarcodeScanError = function () {
             var r = $window.confirm("Scanning failed.  Try again?");
@@ -79,23 +79,17 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
 
             BarcodeScannerService.scanBarcode()
                 .then(function(result){
-                    console.log("RESULT" + result);
-                    console.log(result);
                     barcodeResult = result;
-                    console.log(barcodeResult.barcode);
 
                     if (barcodeResult.error === false) {
-                        console.log("BARCODE NO ERROR");
                         $state.go('enterQuantity', {barcodeId: barcodeResult.barcode});
                     }
 
                     else {
-                        console.log("ERROR" + result);
                         $scope.handleBarcodeScanError();
                     }
 
                 }, function(error){
-                    console.log("ERROR" + error);
                     $scope.handleBarcodeScanError();
                 });
 

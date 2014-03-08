@@ -99,7 +99,7 @@ angular.module('barcodeCartBuilder.services', [])
                 console.log("Redirecting to ", url);
                 //$window.location.href = url;
                 //open in an new window to make navigation easier.  No chrome makes it difficult to work in the system that the cart is submitted to.
-                var ref = $window.open(url, '_blank', '');
+                var ref = $window.open(url, '_system', '');
 
                 return true;
             }

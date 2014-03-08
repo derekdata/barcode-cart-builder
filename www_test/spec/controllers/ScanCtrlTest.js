@@ -58,7 +58,6 @@ describe('Controller: ScanCtrl', function () {
 
         inject(function ($controller, $rootScope, $q) {
             scope = $rootScope.$new();
-
             var deferred = $q.defer();
 
             barcodeScannerServiceMock.scanBarcode = jasmine.createSpy('scanBarcode').andReturn(deferred.promise);
@@ -76,7 +75,6 @@ describe('Controller: ScanCtrl', function () {
             });
 
         });
-
 
         expect(barcodeScannerServiceMock.isAvailable).toHaveBeenCalled();
         expect(barcodeScannerServiceMock.scanBarcode).toHaveBeenCalled();

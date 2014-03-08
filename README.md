@@ -13,8 +13,9 @@ Screenshots
 
 Cordova plugins required
 -------------------------
-com.phonegap.plugins.barcodescanner
-org.apache.cordova.device
+* com.phonegap.plugins.barcodescanner
+* org.apache.cordova.device
+* org.apache.cordova.inappbrowser
 
 Setting up your development environment
 ---------------------------------------
