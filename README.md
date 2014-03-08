@@ -7,9 +7,9 @@ Built using AngularJS, Ionic Framework.  Tested with Jasmine, Karma, angular-moc
 
 Screenshots
 -----------
+<img src="https://raw.github.com/derekdata/barcode-cart-builder/master/sampleData/screenshots/android/cart_350.png" alt="Cart"/>
 
-![alt text](https://github.com/derekdata/barcode-cart-builder/tree/master/sampleData/screenshots/android/cart.png "Cart")
-![alt text](https://github.com/derekdata/barcode-cart-builder/tree/master/sampleData/screenshots/android/editQuantity.png "EditQuantity")
+<img src="https://raw.github.com/derekdata/barcode-cart-builder/master/sampleData/screenshots/android/editQuantity_350.png" alt="Edit Quantity"/>
 
 Cordova plugins required
 -------------------------
