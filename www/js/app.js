@@ -79,17 +79,23 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
 
             BarcodeScannerService.scanBarcode()
                 .then(function(result){
+                    console.log("RESULT" + result);
+                    console.log(result);
                     barcodeResult = result;
+                    console.log(barcodeResult.barcode);
 
                     if (barcodeResult.error === false) {
+                        console.log("BARCODE NO ERROR");
                         $state.go('enterQuantity', {barcodeId: barcodeResult.barcode});
                     }
 
                     else {
+                        console.log("ERROR" + result);
                         $scope.handleBarcodeScanError();
                     }
 
                 }, function(error){
+                    console.log("ERROR" + error);
                     $scope.handleBarcodeScanError();
                 });
 

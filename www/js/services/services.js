@@ -43,27 +43,11 @@ angular.module('barcodeCartBuilder.services', [])
         };
     }
 )
-    .factory('BarcodeScannerService', ['$q', '$timeout', function ($q, $timeout) {
+    .factory('BarcodeScannerService', ['$q', function ($q) {
         return {
             scanBarcode: function () {
 
                 var deferred = $q.defer();
-
-//                var dfd = new jQuery.Deferred();
-//
-
-//                function callBack(data) {
-//                    dfd.notify(data);
-//                }
-//
-//                // do the async call.
-//                myAsynchronousCall(param1, callBack);
-//
-//                function doSomething(data) {
-//                    // do stuff with data...
-//                }
-//
-//                $.when(dfd).then(doSomething);
 
                 plugins.barcodeScanner.scan(
                     function (result) {
@@ -78,9 +62,7 @@ angular.module('barcodeCartBuilder.services', [])
                         deferred.resolve({"error": true});
                     });
 
-                var promise = deferred.promise;
-
-                return promise;
+                return deferred.promise;
 
             },
             isAvailable: function () {
