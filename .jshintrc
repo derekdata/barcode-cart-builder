@@ -8,7 +8,6 @@
     "sub": true,
     "undef": true,
     "boss": true,
-    "eqnull": true,
     "node": true,
     "globals": {
         "angular": true,

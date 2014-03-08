@@ -78,7 +78,7 @@ angular.module('barcodeCartBuilder.services', [])
                 for (var i = 0; i < items.length; i++) {
 
                     var item = items[i];
-                    if (item !== undefined && item !== null && item.quantity != null && item.quantity > 0) {
+                    if (item !== undefined && item !== null && item.quantity !== null && item.quantity > 0) {
                         console.log(item);
                         url += "&item" + (i + 1) + "=";
                         url += encodeURIComponent(item.itemId);

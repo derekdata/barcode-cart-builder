@@ -39,7 +39,7 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
             $state.go('scan');
         };
 
-        $scope.submitCart = function ($scope) {
+        $scope.submitCart = function () {
             var items = Items.all();
             SubmitCartService.submitCart(items);
         };
@@ -67,7 +67,7 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
 
             var result = BarcodeScannerService.scanBarcode();
 
-            if (result['error'] === false) {
+            if (result.error === false) {
                 $state.go('enterQuantity', {barcodeId: result.barcode});
             }
             else {
@@ -124,7 +124,7 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
         console.log(BarcodeItemService.get(parseInt(barcodeId, 10)));
         $scope.currentItem = angular.copy(BarcodeItemService.get(parseInt(barcodeId, 10)));
 
-        if ($scope.currentItem === undefined || $scope.currentItem == null || $scope.currentItem.itemId === undefined || $scope.currentItem.itemId == null) {
+        if ($scope.currentItem === undefined || $scope.currentItem === null || $scope.currentItem.itemId === undefined || $scope.currentItem.itemId === null) {
             var r = $window.confirm("Item not found.  Try again?");
             if (r === true) {
                 $state.go('scan');
