@@ -43,20 +43,45 @@ angular.module('barcodeCartBuilder.services', [])
         };
     }
 )
-    .factory('BarcodeScannerService', function () {
+    .factory('BarcodeScannerService', ['$q', '$timeout', function ($q, $timeout) {
         return {
             scanBarcode: function () {
+
+                var deferred = $q.defer();
+
+//                var dfd = new jQuery.Deferred();
+//
+
+//                function callBack(data) {
+//                    dfd.notify(data);
+//                }
+//
+//                // do the async call.
+//                myAsynchronousCall(param1, callBack);
+//
+//                function doSomething(data) {
+//                    // do stuff with data...
+//                }
+//
+//                $.when(dfd).then(doSomething);
+
                 plugins.barcodeScanner.scan(
                     function (result) {
                         console.log("We got a barcode\n" +
                             "Result: " + result.text + "\n" +
                             "Format: " + result.format + "\n" +
                             "Cancelled: " + result.cancelled);
-                        return {"error": false, "barcode": result.text};
+                        deferred.resolve({"error": false, "barcode": result.text});
+
                     },
                     function (error) {
-                        return {"error": true};
+                        deferred.resolve({"error": true});
                     });
+
+                var promise = deferred.promise;
+
+                return promise;
+
             },
             isAvailable: function () {
                 if (typeof plugins !== 'undefined' &&
@@ -67,8 +92,8 @@ angular.module('barcodeCartBuilder.services', [])
                 return false;
             }
         };
-    }
-)
+    }]
+    )
     .factory('SubmitCartService', function ($window, SUBMIT_CART_URL) {
         return {
             submitCart: function (items) {

@@ -60,25 +60,39 @@ angular.module('barcodeCartBuilder', ['ionic', 'barcodeCartBuilder.services'])
 
     })
 
-    .controller('ScanCtrl', function ($scope, $timeout, $ionicModal, $state, BarcodeScannerService, $window) {
+    .controller('ScanCtrl', function ($scope, $timeout, $ionicModal, $state, BarcodeScannerService, $window, $rootScope) {
+
+        $scope.handleBarcodeScanError = function () {
+            var r = $window.confirm("Scanning failed.  Try again?");
+            if (r === true) {
+                $state.go('scan');
+            }
+            else {
+                $state.go('home');
+            }
+        };
 
         console.log("Scanner Avaialble?" + BarcodeScannerService.isAvailable());
         if (BarcodeScannerService.isAvailable() === true) {
 
-            var result = BarcodeScannerService.scanBarcode();
+            var barcodeResult = {};
 
-            if (result.error === false) {
-                $state.go('enterQuantity', {barcodeId: result.barcode});
-            }
-            else {
-                var r = $window.confirm("Scanning failed.  Try again?");
-                if (r === true) {
-                    $state.go('scan');
-                }
-                else {
-                    $state.go('home');
-                }
-            }
+            BarcodeScannerService.scanBarcode()
+                .then(function(result){
+                    barcodeResult = result;
+
+                    if (barcodeResult.error === false) {
+                        $state.go('enterQuantity', {barcodeId: barcodeResult.barcode});
+                    }
+
+                    else {
+                        $scope.handleBarcodeScanError();
+                    }
+
+                }, function(error){
+                    $scope.handleBarcodeScanError();
+                });
+
         }
         //else, if barcode scanner is not available ask them to key it in
         else {
