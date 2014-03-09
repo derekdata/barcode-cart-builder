@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.bcs" version="0.0.1" xmlns="http://www.w3.org/ns/widgets">
+<widget id="com.derekdata.barcodecart" version="0.0.1" xmlns="http://www.w3.org/ns/widgets">
     <name>Barcode Cart Builder</name>
     <description>
         Build a cart by scanning barcodes

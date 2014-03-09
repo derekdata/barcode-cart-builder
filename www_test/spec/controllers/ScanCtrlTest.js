@@ -76,9 +76,10 @@ describe('Controller: ScanCtrl', function () {
 
         });
 
+        scope.$digest();
         expect(barcodeScannerServiceMock.isAvailable).toHaveBeenCalled();
         expect(barcodeScannerServiceMock.scanBarcode).toHaveBeenCalled();
-//        expect(stateMock.go).toHaveBeenCalledWith('enterQuantity', { barcodeId: fakeBarcode2 });
+        expect(stateMock.go).toHaveBeenCalledWith('enterQuantity', { barcodeId: fakeBarcode2 });
 
     });
 
@@ -108,9 +109,10 @@ describe('Controller: ScanCtrl', function () {
 
         });
 
+        scope.$digest();
         expect(barcodeScannerServiceMock.isAvailable).toHaveBeenCalled();
         expect(barcodeScannerServiceMock.scanBarcode).toHaveBeenCalled();
-//        expect(stateMock.go).toHaveBeenCalledWith('scan');
+        expect(stateMock.go).toHaveBeenCalledWith('scan');
 
     });
 
@@ -140,9 +142,10 @@ describe('Controller: ScanCtrl', function () {
 
         });
 
+        scope.$digest();
         expect(barcodeScannerServiceMock.isAvailable).toHaveBeenCalled();
         expect(barcodeScannerServiceMock.scanBarcode).toHaveBeenCalled();
-//        expect(stateMock.go).toHaveBeenCalledWith('home');
+        expect(stateMock.go).toHaveBeenCalledWith('home');
 
     });
 
